@@ -1,0 +1,13 @@
+int evaporator(double content, double evap_per_day, double threshold) 
+{
+    double day1_content = content;          // content at the beginning
+    double day = 0;
+    double percent_left = 100;
+    while(percent_left > threshold)        // execute the while loop as long as the percentage of the content left after each day is greater than the threshold
+    { 
+        content = content - (content*evap_per_day/100);     // update content 
+        percent_left = (content/day1_content)*100;
+        day ++;
+    }  
+    return day;
+}
